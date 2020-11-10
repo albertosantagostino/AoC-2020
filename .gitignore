@@ -1,7 +1,8 @@
-# CMake
+# CMake / Make
 **/CMakeFiles/
 **/CMakeCache.txt
 Makefile
 *.cmake
 
+# Binaries
 bin/

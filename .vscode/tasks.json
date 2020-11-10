@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "run_build_script",
+            "type": "shell",
+            "command": "./build.sh",
+            "args": [
+                "DBG",
+                "${fileBasenameNoExtension}"
+            ]
+        }
+    ]
+}
