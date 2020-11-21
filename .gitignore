@@ -4,5 +4,5 @@
 Makefile
 *.cmake
 
-# Binaries
-bin/
+# Binaries / build
+**/bin/

@@ -6,23 +6,29 @@
 #        TARGET     = Target name as specified in CMakeLists.txt
 
 build_debug() {
-    mkdir -p bin/Debug
-    cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Debug .
+    cd build/debug
+    mkdir -p bin
+    cd bin
+    cmake ..
     if [ $# -eq 1 ]; then
-        make $1
+        make $1 -j 4
     else
-        make
+        make -j 4
     fi
+    cd ../../../
 }
 
 build_release() {
-    mkdir -p bin/Release
-    cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release .
+    cd build/release
+    mkdir -p bin
+    cd bin
+    cmake ..
     if [ $# -eq 1 ]; then
-        make $1
+        make $1 -j 4
     else
-        make
+        make -j 4
     fi
+    cd ../../../
 }
 
 if [[ $# -eq 0 ]]; then
