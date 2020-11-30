@@ -1,0 +1,3 @@
+[submodule "include/commonlib"]
+	path = include/commonlib
+	url = git@github.com:albertosantagostino/commonlib-cpp.git
