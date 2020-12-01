@@ -14,6 +14,7 @@ int main()
         expenses.push_back(std::stoi(str));
     }
 
+    // Sort the expenses vector
     std::sort(expenses.begin(), expenses.end());
 
     // For each value, look (in reverse order) for its complement to 2020
@@ -22,7 +23,7 @@ int main()
         auto it = std::find(expenses.rbegin(), expenses.rend(), 2020 - value);
         if (it != expenses.rend())
         {
-            std::cout << 2020 - value << " x " << value << " = " << value * (*it) << std::endl;
+            std::cout << (value * (*it)) << std::endl;
             break;
         }
     }

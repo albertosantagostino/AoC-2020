@@ -1,27 +1,28 @@
-# Advent of Code 2020 🎄
+# Advent of Code 2020 (C++) 🎄
 
-[adventofcode.com (2020)](https://adventofcode.com/2020)  
-Language: **C++**
+<div align="center">
 
-| Day  | 1    | 2    |
-| ---- | ---- | ---- |
-| 01   | ⭐    | ⭐    |
-| 02   |      |      |
+| Day  | Link             | 1   | 2   |
+| ---- | :--------------: | :-: | :-: |
+| 01   | [📁](src/day01/) | ⭐  | ⭐  |
+| 02   | [📁](src/day02/) |     |     |
+
+</div>
 
 ### Build process
 
 Every puzzle is a CMake target named using the following form: `day01_1` (puzzle day 1, part 1)
 The script `build.sh` takes care of the building process. To build a target:
 
-**Release configuration**  
+**Release configuration**
 `./build.sh REL` or `./build.sh REL <TARGET>`
 
 To run the built target, `./build/release/bin/day01_1`
 
-**Debug configuration**  
+**Debug configuration**
 `./build.sh DBG` or `./build.sh DBG <TARGET>`
 
-The debug configuration is configured to facilitate Visual Studio Code debugging. After breakpoints are set, press `F5` to build and debug interactively the source file currently opened 
+The debug configuration is configured to facilitate Visual Studio Code debugging. After breakpoints are set, press `F5` to build and debug interactively the source file currently opened
 
 #### Requirements
 

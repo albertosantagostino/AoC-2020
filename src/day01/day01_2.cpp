@@ -15,6 +15,7 @@ int main()
         expenses.push_back(std::stoi(str));
     }
 
+    // Sort the expenses vector
     std::sort(expenses.begin(), expenses.end());
 
     // Double iterate on the vector and use a set to find the third element to complete the triplet
@@ -26,8 +27,7 @@ int main()
             if (uset.find(2020 - (*it1) - (*it2)) != uset.end())
             {
                 int third = 2020 - (*it1) - (*it2);
-                std::cout << third << " x " << (*it1) << " x " << (*it2) << " = "
-                          << third * (*it1) * (*it2) << std::endl;
+                std::cout << (third * (*it1) * (*it2)) << std::endl;
                 break;
             }
             uset.insert(*it2);
