@@ -5,11 +5,8 @@ Language: **C++**
 
 | Day  | 1    | 2    |
 | ---- | ---- | ---- |
-| 01   |      |      |
-
-### Project structure
-
-
+| 01   | ⭐    | ⭐    |
+| 02   |      |      |
 
 ### Build process
 
@@ -24,8 +21,9 @@ To run the built target, `./build/release/bin/day01_1`
 **Debug configuration**  
 `./build.sh DBG` or `./build.sh DBG <TARGET>`
 
-The debug configuration is already configured to facilitate the usage of Visual Studio Code debugging. After breakpoints are set, press `F5` to build and debug interactively the source file currently opened 
+The debug configuration is configured to facilitate Visual Studio Code debugging. After breakpoints are set, press `F5` to build and debug interactively the source file currently opened 
 
 #### Requirements
 
 CMake ≥ 3.15, gcc ≥ 9.3
+

@@ -9,9 +9,8 @@ AllowShortLoopsOnASingleLine: false
 BinPackArguments: false
 BinPackParameters: false
 BraceWrapping:
-  AfterCaseLabel: true
   AfterClass: true
-  AfterControlStatement: Always
+  AfterControlStatement: true
   AfterEnum: true
   AfterFunction: true
   AfterNamespace: true

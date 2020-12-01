@@ -6,3 +6,6 @@ Makefile
 
 # Binaries / build
 **/bin/
+
+# VSC settings
+.vscode/settings.json
