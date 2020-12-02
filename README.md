@@ -2,12 +2,14 @@
 
 <div align="center">
 
-| Day  | Link             | 1   | 2   |
-| ---- | :--------------: | :-: | :-: |
-| 01   | [📁](src/day01/) | ⭐  | ⭐  |
-| 02   | [📁](src/day02/) |     |     |
+| Day                                            | 1                     | 2                     |
+| ---------------------------------------------- | :-------------------: | :-------------------: |
+| **[01](https://adventofcode.com/2020/day/1)**  | [⭐](src/day01_1.cpp) | [⭐](src/day01_2.cpp) |
+| **[02](https://adventofcode.com/2020/day/2)**  | [⭐](src/day02_1.cpp) | [⭐](src/day02_2.cpp) |
 
 </div>
+
+(Click on the ⭐, jump to the code)
 
 ### Build process
 

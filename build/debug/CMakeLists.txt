@@ -15,6 +15,8 @@ file(GLOB COMMON_SRC ../../src/common/*.cpp)
 file(COPY ../../data DESTINATION ${CMAKE_BINARY_DIR})
 
 # Add bin targets
-add_executable(day01_1 ../../src/day01/day01_1.cpp ${COMMON_SRC})
-add_executable(day01_2 ../../src/day01/day01_2.cpp ${COMMON_SRC})
+add_executable(day01_1 ../../src/day01_1.cpp ${COMMON_SRC})
+add_executable(day01_2 ../../src/day01_2.cpp ${COMMON_SRC})
+add_executable(day02_1 ../../src/day02_1.cpp ${COMMON_SRC})
+add_executable(day02_2 ../../src/day02_2.cpp ${COMMON_SRC})
 
