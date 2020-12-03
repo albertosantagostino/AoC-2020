@@ -18,7 +18,7 @@ int main()
     fp.open("data/day03.txt", std::ifstream::in);
     // Initialize the grid (no separator), set tree tiles and make the grid infinite (repeat pattern)
     Grid grid(fp, '\0');
-    grid.AddTileType(TileType::kTileType_Tree, '#');
+    grid.AddTileTypeDefinition(TileType::kTileType_Tree, '#');
     grid.MakeInfinite(true);
 
     // Define the slope to traverse
