@@ -6,6 +6,7 @@
 | ---------------------------------------------- | :-------------------: | :-------------------: |
 | **[01](https://adventofcode.com/2020/day/1)**  | [⭐](src/day01_1.cpp) | [⭐](src/day01_2.cpp) |
 | **[02](https://adventofcode.com/2020/day/2)**  | [⭐](src/day02_1.cpp) | [⭐](src/day02_2.cpp) |
+| **[03](https://adventofcode.com/2020/day/3)**  | [⭐](src/day03_1.cpp) | [⭐](src/day03_2.cpp) |
 
 </div>
 
@@ -24,10 +25,12 @@ To run the built target, `./build/release/bin/day01_1`
 **Debug configuration**  
 `./build.sh DBG` or `./build.sh DBG <TARGET>`
 
-The debug configuration is configured to facilitate Visual Studio Code debugging.  
+The debug configuration is configured to facilitate Visual Studio Code debugging.
 After breakpoints are set, press `F5` to build and debug interactively the source file currently opened
 
-#### Requirements
+### Dependencies / Requirements
+
+This year I'm using as "primitive library" **[commonlib](https://github.com/albertosantagostino/commonlib-cpp)**, a
+header-only library I'm writing from scratch. It's linked as a submodule under `include/commonlib`.
 
 CMake ≥ 3.15, gcc ≥ 9.3
-
