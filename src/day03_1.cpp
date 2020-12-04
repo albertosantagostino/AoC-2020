@@ -14,8 +14,7 @@ typedef Position<std::size_t> GridPosition;
 int main()
 {
     // Load data
-    std::ifstream fp;
-    fp.open("data/day03.txt", std::ifstream::in);
+    std::ifstream fp("data/day03.txt");
     // Initialize the grid (no separator), set tree tiles and make the grid infinite (repeat pattern)
     Grid grid(fp, '\0');
     grid.AddTileTypeDefinition(TileType::kTileType_Tree, '#');
