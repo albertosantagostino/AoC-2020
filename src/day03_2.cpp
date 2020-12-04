@@ -32,10 +32,7 @@ int main()
         while (pos.x < grid.NRows() - 1U)
         {
             pos += slope;
-            if (grid.GetTileType(pos.x, pos.y) == TileType::kTileType_Tree)
-            {
-                trees++;
-            }
+            trees += (grid.GetTileType(pos.x, pos.y) == TileType::kTileType_Tree);
         }
         // Multiply together the trees for each slope
         mul_trees *= trees;

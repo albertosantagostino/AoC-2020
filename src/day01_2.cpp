@@ -26,7 +26,7 @@ int main()
         {
             if (uset.find(2020 - (*it1) - (*it2)) != uset.end())
             {
-                int third = 2020 - (*it1) - (*it2);
+                const int third = 2020 - (*it1) - (*it2);
                 std::cout << (third * (*it1) * (*it2)) << std::endl;
                 break;
             }

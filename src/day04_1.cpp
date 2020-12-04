@@ -30,9 +30,9 @@ int main()
                                           std::istream_iterator<std::string>{}};
             for (auto field_txt : toks)
             {
-                std::size_t sep_idx = field_txt.find_first_of(":");
-                std::string key = field_txt.substr(0U, sep_idx);
-                std::string val = field_txt.substr(sep_idx + 1U, str.size());
+                const std::size_t sep_idx = field_txt.find_first_of(":");
+                const std::string key = field_txt.substr(0U, sep_idx);
+                const std::string val = field_txt.substr(sep_idx + 1U, str.size());
                 passport.insert({key, val});
             }
         }
@@ -44,10 +44,7 @@ int main()
     std::for_each(passport_batch.begin(), passport_batch.end(), [&valid_count, mandatory_fields](Passport const& p) {
         std::size_t valid_fields{0U};
         std::for_each(mandatory_fields.begin(), mandatory_fields.end(), [&valid_fields, &p](auto const& f) {
-            if (p.find(f) != p.end())
-            {
-                valid_fields++;
-            }
+            valid_fields += (p.find(f) != p.end());
         });
         valid_count += valid_fields / 7;
     });

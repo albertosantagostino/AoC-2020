@@ -54,7 +54,6 @@ bool ValidateHeight(const std::string height)
 {
     std::string num = height.substr(0U, height.size() - 2);
     std::string unit = height.substr(height.size() - 2, height.size());
-
     if (((unit == "cm") && ((std::stoi(num) >= 150) && (std::stoi(num) <= 193))) ||
         ((unit == "in") && ((std::stoi(num) >= 59) && (std::stoi(num) <= 76))))
     {
@@ -90,9 +89,9 @@ int main()
                                           std::istream_iterator<std::string>{}};
             for (auto field_txt : toks)
             {
-                std::size_t sep_idx = field_txt.find_first_of(":");
-                std::string key = field_txt.substr(0U, sep_idx);
-                std::string val = field_txt.substr(sep_idx + 1U, str.size());
+                const std::size_t sep_idx = field_txt.find_first_of(":");
+                const std::string key = field_txt.substr(0U, sep_idx);
+                const std::string val = field_txt.substr(sep_idx + 1U, str.size());
                 passport.insert({key, val});
             }
         }
@@ -104,47 +103,40 @@ int main()
     }
 
     const std::vector<std::string> mandatory_fields{"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"};
-
     // Iterate over all passports in the batch
     std::size_t valid_count{0U};
     std::for_each(passport_batch.begin(), passport_batch.end(), [&valid_count, mandatory_fields](Passport const& p) {
         std::size_t valid_fields{0U};
-        // Iterate over all mandatory fields to validate
+        // Iterate over all the mandatory fields to validate
         std::for_each(mandatory_fields.begin(), mandatory_fields.end(), [&valid_fields, &p](auto const& f) {
-            auto it = p.find(f);
+            Passport::const_iterator it = p.find(f);
             if (it != p.end())
             {
-                PassportField field{GetPassportFieldEnum(it->first)};
-                bool validated{false};
-                switch (field)
+                switch (GetPassportFieldEnum(it->first))
                 {
                     case PassportField::kPassportField_BirthYear:
-                        validated = ValidateYear(it->second, 1920, 2002);
+                        valid_fields += ValidateYear(it->second, 1920, 2002);
                         break;
                     case PassportField::kPassportField_IssueYear:
-                        validated = ValidateYear(it->second, 2010, 2020);
+                        valid_fields += ValidateYear(it->second, 2010, 2020);
                         break;
                     case PassportField::kPassportField_ExpirationYear:
-                        validated = ValidateYear(it->second, 2020, 2030);
+                        valid_fields += ValidateYear(it->second, 2020, 2030);
                         break;
                     case PassportField::kPassportField_Height:
-                        validated = ValidateHeight(it->second);
+                        valid_fields += ValidateHeight(it->second);
                         break;
                     case PassportField::kPassportField_HairColor:
-                        validated = ValidateWithRegex(it->second, "#([a-f0-9]{6})");
+                        valid_fields += ValidateWithRegex(it->second, "#([a-f0-9]{6})");
                         break;
                     case PassportField::kPassportField_EyeColor:
-                        validated = ValidateWithRegex(it->second, "[(amb|blu|brn|gry|grn|hzl|oth)]{3}");
+                        valid_fields += ValidateWithRegex(it->second, "[(amb|blu|brn|gry|grn|hzl|oth)]{3}");
                         break;
                     case PassportField::kPassportField_PassportId:
-                        validated = ValidateWithRegex(it->second, "([0-9]{9})");
+                        valid_fields += ValidateWithRegex(it->second, "([0-9]{9})");
                         break;
                     default:
                         break;
-                }
-                if (validated)
-                {
-                    valid_fields++;
                 }
             }
         });

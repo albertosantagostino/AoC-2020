@@ -28,10 +28,7 @@ int main()
     while ((pos.x < grid.NRows() - 1U))
     {
         pos += slope;
-        if (grid.GetTileType(pos.x, pos.y) == TileType::kTileType_Tree)
-        {
-            trees++;
-        }
+        trees += (grid.GetTileType(pos.x, pos.y) == TileType::kTileType_Tree);
     }
 
     std::cout << trees << std::endl;
