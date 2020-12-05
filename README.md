@@ -8,6 +8,7 @@
 | **[02](https://adventofcode.com/2020/day/2)**  | [⭐](src/day02_1.cpp) | [⭐](src/day02_2.cpp) | 🟢 🟢          |
 | **[03](https://adventofcode.com/2020/day/3)**  | [⭐](src/day03_1.cpp) | [⭐](src/day03_2.cpp) | 🟢 🟢          |
 | **[04](https://adventofcode.com/2020/day/4)**  | [⭐](src/day04_1.cpp) | [⭐](src/day04_2.cpp) | 🟢 🟢          |
+| **[05](https://adventofcode.com/2020/day/5)**  | [⭐](src/day05_1.cpp) | [⭐](src/day05_2.cpp) | 🟢 🟢          |
 
 </div>
 
