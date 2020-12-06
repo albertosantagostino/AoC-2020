@@ -9,6 +9,7 @@
 | **[03](https://adventofcode.com/2020/day/3)**  | [⭐](src/day03_1.cpp) | [⭐](src/day03_2.cpp) | 🟢 🟢          |
 | **[04](https://adventofcode.com/2020/day/4)**  | [⭐](src/day04_1.cpp) | [⭐](src/day04_2.cpp) | 🟢 🟢          |
 | **[05](https://adventofcode.com/2020/day/5)**  | [⭐](src/day05_1.cpp) | [⭐](src/day05_2.cpp) | 🟢 🟢          |
+| **[06](https://adventofcode.com/2020/day/6)**  | [⭐](src/day06_1.cpp) | [⭐](src/day06_2.cpp) | 🟢 🟢          |
 
 </div>
 
@@ -20,10 +21,10 @@ Solved on time column: 🟢 = same day, 🟡 = within 3 days, 🔴 = more than 3
 Every puzzle is a CMake target named using the form: `day01_1` (as an example, for the puzzle of day 1, part 1)
 The script `build.sh` takes care of the building process. To build a target:
 
-**Release configuration: run and build a target**  
-`./build.sh REL` or `./build.sh REL <TARGET>`
-
-To run the built target, `./build/release/bin/day01_1`
+**Release configuration: build/run**  
+Build all targets: `./build.sh REL`  
+Build a specific target: (for example `day01_1`): `./build.sh REL day01_1`  
+Run a target, `./build/release/bin/day01_1`
 
 **Debug configuration**  
 The script is used to facilitate Visual Studio Code debugging. Everything works out-of-the-box if the `AoC-2020 folder` is opened in VSCode  

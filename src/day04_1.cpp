@@ -13,8 +13,8 @@ int main()
 {
     // Load data
     std::ifstream fp("data/day04.txt");
-    PassportsBatch passport_batch{};
-    Passport passport{};
+    PassportsBatch passport_batch;
+    Passport passport;
     std::string str;
     while (std::getline(fp, str))
     {

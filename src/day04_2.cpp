@@ -72,8 +72,8 @@ int main()
 {
     // Load data
     std::ifstream fp("data/day04.txt");
-    PassportsBatch passport_batch{};
-    Passport passport{};
+    PassportsBatch passport_batch;
+    Passport passport;
     std::string str;
     while (std::getline(fp, str))
     {
@@ -95,11 +95,6 @@ int main()
                 passport.insert({key, val});
             }
         }
-    }
-    // Handle possible one-line passport at the end of file
-    if (passport.size())
-    {
-        passport_batch.push_back(passport);
     }
 
     const std::vector<std::string> mandatory_fields{"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"};
