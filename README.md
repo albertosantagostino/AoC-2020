@@ -12,11 +12,12 @@
 | **[06](https://adventofcode.com/2020/day/6)**  | [⭐](src/day06_1.cpp) | [⭐](src/day06_2.cpp) | 🟢 🟢          |
 | **[07](https://adventofcode.com/2020/day/7)**  |                       |                       |                |
 | **[08](https://adventofcode.com/2020/day/8)**  | [⭐](src/day08_1.cpp) | [⭐](src/day08_2.cpp) | 🟢 🟢          |
+| **[09](https://adventofcode.com/2020/day/9)**  | [⭐](src/day09_1.cpp) | [⭐](src/day09_2.cpp) | 🟢 🟢          |
 
 </div>
 
 Click on the ⭐, go to the code  
-Solved on time column: 🟢 = same day, 🟡 = within 3 days, 🔴 = more than 3 days
+"Solved on time" column: 🟢 = same day, 🟡 = within 3 days, 🔴 = within 1 week, ⚫ = more than 1 week
 
 ### Build process
 
@@ -29,7 +30,7 @@ Build a specific target: (for example `day01_1`): `./build.sh REL day01_1`
 Run a target, `./build/release/bin/day01_1`
 
 **Debug configuration**  
-The script is used to facilitate Visual Studio Code debugging. Everything works out-of-the-box if the `AoC-2020 folder` is opened in VSCode  
+The script is used to facilitate Visual Studio Code debugging. Everything works out-of-the-box opening the `AoC-2020` folder in VSCode  
 After breakpoints are set, press `F5` to build and debug interactively the source file currently displayed
 
 ### Dependencies / Requirements
