@@ -3,55 +3,34 @@
 #include <fstream>
 #include <iostream>
 #include <iterator>
+#include <map>
 #include <sstream>
 #include <vector>
 
-// Disclaimer: I really dislike this solution. I will hopefully come back later on and rewrite it from scratch
+typedef std::pair<std::string, std::vector<std::string>> Bag;
+typedef std::map<std::string, std::vector<std::string>> Bags;
 
-struct Bag
+bool SearchBag(Bag bag, const std::string& desired_bag, Bags& bags)
 {
-    Bag(std::string c) : color(c) {}
-    const std::string color;
-    std::vector<Bag> contained_bags;
-};
-
-typedef std::vector<Bag> Bags;
-
-void FillBag(Bag& bag, Bags bag_rules)
-{
-    auto it = std::find_if(
-        bag_rules.begin(), bag_rules.end(), [&bag](const auto& bag_rule) { return bag_rule.color == bag.color; });
-
-    if (it != bag_rules.end())
-    {
-        for (auto bag_to_add : it->contained_bags)
-        {
-            FillBag(bag_to_add, bag_rules);
-            bag.contained_bags.push_back(bag_to_add);
-        }
-    }
-}
-
-bool SearchBag(const Bag bag, const std::string desired_bag)
-{
-    if (bag.color == desired_bag)
+    bool found{false};
+    if (bag.first == desired_bag)
     {
         return true;
     }
     else
     {
-        bool overall_res{false};
-        std::for_each(
-            bag.contained_bags.begin(), bag.contained_bags.end(), [&overall_res, desired_bag](const auto& inner_bag) {
-                bool res = SearchBag(inner_bag, desired_bag);
-                if (res)
-                {
-                    overall_res = true;
-                }
-            });
-        return overall_res;
+        for (auto sub_bag : bag.second)
+        {
+            auto contained_bag = std::make_pair(sub_bag, bags[sub_bag]);
+            found = SearchBag(contained_bag, desired_bag, bags);
+            if (found)
+            {
+                break;
+            }
+        }
     }
-    return false;
+
+    return found;
 }
 
 int main()
@@ -69,31 +48,25 @@ int main()
 
         if (words[4] != "no")
         {
-            std::stringstream curr_bag_color;
-            curr_bag_color << words[0] << " " << words[1];
-            Bag curr_bag(curr_bag_color.str());
-
+            std::stringstream bag;
+            bag << words[0] << " " << words[1];
+            std::vector<std::string> sub_bags;
             for (std::size_t i = 4U; i <= words.size() - 1U; i += 4U)
             {
                 std::stringstream sub_bag_color;
                 sub_bag_color << words[i + 1U] << " " << words[i + 2U];
-                Bag new_bag(sub_bag_color.str());
-                curr_bag.contained_bags.push_back(new_bag);
+                sub_bags.push_back(sub_bag_color.str());
             }
-            bags.push_back(curr_bag);
+            bags.insert({bag.str(), sub_bags});
         }
     }
 
-    // Fill all the bags recursively
-    std::for_each(bags.begin(), bags.end(), [bags](auto& bag) { FillBag(bag, bags); });
-
-    // Check which bags contain the desired one
+    // For each bag, iterate over it and recursively explore all the contained bags
     std::size_t possible_colors{0U};
-    std::for_each(bags.begin(), bags.end(), [&possible_colors, desired_bag](const auto& bag) {
-        possible_colors += SearchBag(bag, desired_bag);
+    std::for_each(bags.begin(), bags.end(), [&possible_colors, &bags, &desired_bag](auto& bag) {
+        possible_colors += SearchBag(bag, desired_bag, bags);
     });
 
-    // Remove the bag considered in the rule (match at upper level) and print the result
     std::cout << possible_colors - 1U << std::endl;
 
     return EXIT_SUCCESS;
