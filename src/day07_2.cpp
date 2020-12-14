@@ -9,26 +9,14 @@
 typedef std::pair<std::string, std::vector<std::string>> Bag;
 typedef std::map<std::string, std::vector<std::string>> Bags;
 
-bool SearchBag(Bag bag, const std::string& desired_bag, Bags& bags)
+void CountBags(Bag bag, std::size_t& contained_bags, Bags& bags)
 {
-    bool found{false};
-    if (bag.first == desired_bag)
+    for (auto sub_bag : bag.second)
     {
-        return true;
+        contained_bags++;
+        auto contained_bag = std::make_pair(sub_bag, bags[sub_bag]);
+        CountBags(contained_bag, contained_bags, bags);
     }
-    else
-    {
-        for (auto sub_bag : bag.second)
-        {
-            auto contained_bag = std::make_pair(sub_bag, bags[sub_bag]);
-            found = SearchBag(contained_bag, desired_bag, bags);
-            if (found)
-            {
-                break;
-            }
-        }
-    }
-    return found;
 }
 
 int main()
@@ -49,23 +37,25 @@ int main()
             std::stringstream bag;
             bag << words[0] << " " << words[1];
             std::vector<std::string> sub_bags;
-            for (std::size_t i = 4U; i <= words.size() - 1U; i += 4U)
+            for (std::size_t i{4U}; i <= words.size() - 1U; i += 4U)
             {
                 std::stringstream sub_bag_color;
                 sub_bag_color << words[i + 1U] << " " << words[i + 2U];
-                sub_bags.push_back(sub_bag_color.str());
+                // Add the "effective" number of bags as vector elements
+                for (std::size_t j{0U}; j < std::stoi(words[i]); ++j)
+                {
+                    sub_bags.push_back(sub_bag_color.str());
+                }
             }
             bags.insert({bag.str(), sub_bags});
         }
     }
 
-    // For each bag, iterate over it and recursively explore all the contained bags
-    std::size_t possible_colors{0U};
-    std::for_each(bags.begin(), bags.end(), [&possible_colors, &bags, &desired_bag](auto& bag) {
-        possible_colors += SearchBag(bag, desired_bag, bags);
-    });
+    // For each bag, iterate over it and recursively count all the contained bags
+    std::size_t contained_bags{0U};
+    CountBags(std::make_pair(desired_bag, bags[desired_bag]), contained_bags, bags);
 
-    std::cout << possible_colors - 1U << std::endl;
+    std::cout << contained_bags << std::endl;
 
     return EXIT_SUCCESS;
 }

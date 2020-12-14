@@ -10,7 +10,7 @@
 | **[04](https://adventofcode.com/2020/day/4)**  | [⭐](src/day04_1.cpp) | [⭐](src/day04_2.cpp) | 🟢 🟢          |
 | **[05](https://adventofcode.com/2020/day/5)**  | [⭐](src/day05_1.cpp) | [⭐](src/day05_2.cpp) | 🟢 🟢          |
 | **[06](https://adventofcode.com/2020/day/6)**  | [⭐](src/day06_1.cpp) | [⭐](src/day06_2.cpp) | 🟢 🟢          |
-| **[07](https://adventofcode.com/2020/day/7)**  | [⭐](src/day07_1.cpp) |                       | 🟡             |
+| **[07](https://adventofcode.com/2020/day/7)**  | [⭐](src/day07_1.cpp) | [⭐](src/day07_2.cpp) | 🟡 🟠          |
 | **[08](https://adventofcode.com/2020/day/8)**  | [⭐](src/day08_1.cpp) | [⭐](src/day08_2.cpp) | 🟢 🟢          |
 | **[09](https://adventofcode.com/2020/day/9)**  | [⭐](src/day09_1.cpp) | [⭐](src/day09_2.cpp) | 🟢 🟢          |
 | **[10](https://adventofcode.com/2020/day/10)** | [⭐](src/day10_1.cpp) |                       | 🟢             |
