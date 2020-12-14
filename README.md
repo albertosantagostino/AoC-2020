@@ -16,6 +16,8 @@
 | **[10](https://adventofcode.com/2020/day/10)** | [⭐](src/day10_1.cpp) |                       | 🟢             |
 | **[11](https://adventofcode.com/2020/day/11)** | [⭐](src/day11_1.cpp) |                       | 🟡             |
 | **[12](https://adventofcode.com/2020/day/12)** | [⭐](src/day12_1.cpp) |                       | 🟢             |
+| **[13](https://adventofcode.com/2020/day/13)** |                       |                       |                |
+| **[14](https://adventofcode.com/2020/day/14)** | [⭐](src/day14_1.cpp) |                       | 🟢             |
 
 </div>
 
